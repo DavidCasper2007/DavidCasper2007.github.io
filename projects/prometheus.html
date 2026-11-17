@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prometheus liquid engine | David Casper</title>
+<meta name="description" content="Chamber material studies and MATLAB injector sizing for Rice Eclipse&#x27;s nitrous oxide and ethanol engine.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Prometheus liquid engine | David Casper">
+<meta property="og:description" content="Chamber material studies and MATLAB injector sizing for Rice Eclipse&#x27;s nitrous oxide and ethanol engine.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Noto+Sans+Math&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a><header class="band site-head" id="top"><div class="wrap head-row"><a class="brand" href="../index.html">David Casper</a><nav class="site-nav" aria-label="Primary"><a href="../index.html#projects">Projects</a><a href="../index.html#experience">Experience</a><a href="../index.html#skills">Skills</a><a href="../index.html#contact">Contact</a></nav></div></header><main id="main"><section class="band"><div class="wrap proj-head has-media"><div class="proj-text"><a class="back" href="../index.html#projects">&larr; All projects</a><p class="eyebrow">Rice Eclipse · Propulsion Division</p><h1>Prometheus liquid engine</h1><p class="lead">Prometheus is Rice Eclipse’s nitrous oxide and ethanol engine. As a first-year member I wrote two chamber material studies, wrote MATLAB scripts to size the injector holes, and helped plumb and leak check the feed system on hot fire day.</p><dl class="tb"><div><dt>Role</dt><dd>Member, Propulsion Division</dd></div><div><dt>Dates</dt><dd>August 2025 to July 2026</dd></div><div><dt>Engine</dt><dd>N<sub>2</sub>O and ethanol, 300 psi chamber, 1 s burn</dd></div><div><dt>Tools</dt><dd>MATLAB</dd></div></dl></div><figure class="proj-media portrait"><div class="hero-frame"><video autoplay muted loop playsinline poster="../assets/img/prometheus-hotfire-poster-1080.webp" width="720" height="900" aria-label="Video of the Prometheus engine firing on its test stand"><source src="../assets/video/prometheus-hotfire.mp4" type="video/mp4"></video><button type="button" class="sound-btn" data-sound aria-label="Unmute the video">Unmute</button></div><figcaption>Prometheus hot fire · Apr 26, 2026</figcaption></figure></div></section>
+<article class="wrap prose">
+<section>
+  <div class="note"><span class="kicker">Credit</span><p>Prometheus was designed, machined and fired by the Propulsion Division. My contributions were the two material studies, the injector sizing scripts, and feed system assembly and leak checks on test day.</p></div>
+</section>
+
+<section>
+  <h2>Chamber material studies</h2>
+  <p>The chamber is a heat-sink design. It has no active cooling. A thick steel wall absorbs the heat of a one second burn, and a copper insert handles the throat, where the heating is most intense. The chamber runs at 300 psi with a 1.25 in wall, and the team planned to machine it on manual lathes.</p>
+  <p>My first report surveyed how other student teams and published amateur designs build their chambers, compared aluminum, steel and brass, and recommended stainless steel. The second compared specific steels on machinability, thermal conductivity, corrosion and cost.</p>
+  <div class="table-wrap"><table class="data"><caption>Values as listed in my second report.</caption><thead><tr><th scope="col">Steel</th><th scope="col" class="num">Machinability rating</th><th scope="col" class="num">Thermal conductivity</th><th scope="col" class="num">Price, 5 in × 1 ft bar</th></tr></thead><tbody><tr><td>12L14 carbon steel</td><td class="num">197%</td><td class="num">51 W/m·K</td><td class="num">$543.55</td></tr><tr><td>1018 carbon steel</td><td class="num">78%</td><td class="num">52 W/m·K</td><td class="num">$325.31</td></tr><tr class="pick"><td>303 stainless, annealed (my recommendation)</td><td class="num">75%</td><td class="num">16 W/m·K</td><td class="num">$751.02</td></tr><tr><td>304 stainless, annealed</td><td class="num">40%</td><td class="num">16 W/m·K</td><td class="num">$739.65</td></tr></tbody></table></div>
+  <p>I recommended 303 stainless. It machines about as well as 1018 and does not need rust protection. Carbon steel was the cheaper option if the team accepted oiling the part for storage and degreasing it before use.</p>
+  <p>The team went with stainless steel and chose 416, a free-machining grade that was not among the four I compared. Their priorities were the ones the reports weighed: machining on manual lathes, enough heat resistance for a short burn, and none of the rust protection carbon steel would need.</p>
+</section>
+
+<section>
+  <h2>Injector hole sizing</h2>
+  <p>The injector has to pass a set mass flow of each propellant at the pressure drop available between the feed system and the chamber. For a given number of holes, that fixes the hole diameter. My script solves for that diameter for one to ten holes and plots diameter against hole count for both propellants.</p>
+  <p>Ethanol stays liquid through the hole, so the single-phase incompressible relation applies, with discharge coefficient <math><msub><mi>C</mi><mi>d</mi></msub></math>, hole count <math><mi>N</mi></math> and hole area <math><mi>A</mi></math>.</p>
+  <div class="mathblock"><math display="block"><msub><mover accent="true"><mi>m</mi><mo>&#x2D9;</mo></mover><mtext>SPI</mtext></msub><mo>=</mo><msub><mi>C</mi><mi>d</mi></msub><mo>&#x2062;</mo><mi>N</mi><mo>&#x2062;</mo><mi>A</mi><mo>&#x2062;</mo><msqrt><mn>2</mn><mo>&#x2062;</mo><mi>&#x3C1;</mi><mo>&#x2062;</mo><mi>&#x394;</mi><mi>P</mi></msqrt></math></div>
+  <p>Nitrous oxide is harder. It partly flashes to vapor as its pressure drops through the hole. The single-phase relation overpredicts its flow, and the homogeneous equilibrium model, which assumes the liquid and vapor stay in equilibrium, underpredicts it.</p>
+  <div class="mathblock"><math display="block"><msub><mover accent="true"><mi>m</mi><mo>&#x2D9;</mo></mover><mtext>HEM</mtext></msub><mo>=</mo><msub><mi>C</mi><mi>d</mi></msub><mo>&#x2062;</mo><mi>N</mi><mo>&#x2062;</mo><mi>A</mi><mo>&#x2062;</mo><msub><mi>&#x3C1;</mi><mn>2</mn></msub><mo>&#x2062;</mo><msqrt><mn>2</mn><mo>&#x2062;</mo><mo>(</mo><msub><mi>h</mi><mn>1</mn></msub><mo>&#x2212;</mo><msub><mi>h</mi><mn>2</mn></msub><mo>)</mo></msqrt></math></div>
+  <p>Dyer’s model blends the two. The script uses an even blend, which is what Dyer’s weighting reduces to when the nitrous oxide reaches the injector saturated.</p>
+  <div class="mathblock"><math display="block"><msub><mover accent="true"><mi>m</mi><mo>&#x2D9;</mo></mover><mtext>ox</mtext></msub><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>&#x2062;</mo><msub><mover accent="true"><mi>m</mi><mo>&#x2D9;</mo></mover><mtext>SPI</mtext></msub><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>&#x2062;</mo><msub><mover accent="true"><mi>m</mi><mo>&#x2D9;</mo></mover><mtext>HEM</mtext></msub></math></div>
+  <p>Each case is solved by bisection on the hole diameter until the modeled flow matches the required flow.</p>
+  <div class="table-wrap narrow"><table class="data"><thead><tr><th scope="col">Input</th><th scope="col" class="num">Value</th></tr></thead><tbody><tr><td>Oxidizer mass flow</td><td class="num">0.345 kg/s</td></tr><tr><td>Fuel mass flow</td><td class="num">0.173 kg/s</td></tr><tr><td>Pressure upstream of the injector</td><td class="num">840 psia</td></tr><tr><td>Chamber pressure</td><td class="num">300 psia</td></tr><tr><td>Hole counts solved</td><td class="num">1 to 10</td></tr></tbody></table></div>
+  <pre class="code" tabindex="0"><code>function [dHole, iter] = Bisection(holeMinD, holeMaxD, HVal, tol, flowRate, flowRateOx)
+    dHole = (holeMinD + holeMaxD)/2;
+    iter = 0;
+    while abs(FlowModel(dHole, HVal, flowRate, flowRateOx)) &gt; tol
+        if FlowModel(holeMinD, HVal, flowRate, flowRateOx) * FlowModel(dHole, HVal, flowRate, flowRateOx) &lt; 0
+            holeMaxD = dHole;
+        else
+            holeMinD = dHole;
+        end
+        dHole = (holeMinD + holeMaxD)/2;
+        iter = iter + 1;
+    end
+end
+
+function [y] = FlowModel(dHole, HVal, flowRate, flowRateOx)
+    dPipe = 3 * 0.0254;  <span class="c">% Pipe diameter in meters</span>
+    holeArea = pi*(dHole^2)/4;
+    SinglePhase = SinglePhaseFlowModel(dHole, HVal, dPipe);
+    DoublePhase = DoublePhaseFlowModel(dHole, HVal, dPipe);
+    if flowRate == flowRateOx  <span class="c">% Oxidizer (Nitrous Oxide) using two-phase model</span>
+        y = flowRate - ( (0.5 * SinglePhase) + (0.5 * DoublePhase) );
+    else  <span class="c">% Fuel using only single-phase model</span>
+        y = flowRate - SinglePhase;
+    end
+end</code></pre>
+</section>
+
+<section>
+  <h2>Hot fire day</h2>
+  <p>The engine fired on April 26, 2026. During setup that day I assembled feed system plumbing and performed leak checks. The photos below were taken after the hot fire.</p>
+  <div class="figrow">
+    <figure class="fig photo"><a class="frame" href="../assets/img/prometheus-injector-1600.webp" data-caption="Fig. 1. The injector after the hot fire."><img src="../assets/img/prometheus-injector-800.webp" srcset="../assets/img/prometheus-injector-800.webp 600w, ../assets/img/prometheus-injector-1600.webp 1200w" sizes="(max-width: 640px) 92vw, 420px" width="600" height="800" alt="Steel injector face with two orange O-rings and a central post" loading="lazy" decoding="async"></a><figcaption><b>Fig. 1</b>The injector after the hot fire.</figcaption></figure>
+    <figure class="fig photo"><a class="frame" href="../assets/img/prometheus-throat-insert-1600.webp" data-caption="Fig. 2. The copper throat insert after the hot fire."><img src="../assets/img/prometheus-throat-insert-800.webp" srcset="../assets/img/prometheus-throat-insert-800.webp 600w, ../assets/img/prometheus-throat-insert-1600.webp 1200w" sizes="(max-width: 640px) 92vw, 420px" width="600" height="800" alt="Copper throat insert with two orange O-rings, darkened on the inside" loading="lazy" decoding="async"></a><figcaption><b>Fig. 2</b>The copper throat insert after the hot fire.</figcaption></figure>
+    <figure class="fig photo"><a class="frame" href="../assets/img/prometheus-chamber-end-1600.webp" data-caption="Fig. 3. The end of the chamber body, showing its wall thickness."><img src="../assets/img/prometheus-chamber-end-800.webp" srcset="../assets/img/prometheus-chamber-end-800.webp 600w, ../assets/img/prometheus-chamber-end-1600.webp 1200w" sizes="(max-width: 640px) 92vw, 420px" width="600" height="800" alt="End of the thick-walled steel chamber with two orange O-rings in its face" loading="lazy" decoding="async"></a><figcaption><b>Fig. 3</b>The end of the chamber body, showing its wall thickness.</figcaption></figure>
+  </div>
+</section>
+</article>
+</main>
+<div class="wrap"><nav class="pager" aria-label="More projects"><a href="level-2-rocket.html"><span class="kicker">Previous project</span><strong>Level 2 certification rocket</strong></a><a class="next" href="two-stage-recovery.html"><span class="kicker">Next project</span><strong>Two-stage flight and recovery testing</strong></a></nav></div><footer class="band"><div class="wrap"><div class="site-foot plain"><span>David Casper · Mechanical Engineering · Rice University</span><span>Updated November 2026</span></div></div></footer><dialog class="lightbox" aria-label="Enlarged figure"><form method="dialog"><button>Close</button></form><p></p></dialog>
+<script src="../assets/site.js"></script>
+</body>
+</html>

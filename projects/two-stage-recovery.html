@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Two-stage flight and recovery testing | David Casper</title>
+<meta name="description" content="Launch operations for Rice Eclipse&#x27;s first successful two-stage rocket and black powder ground separation tests.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Two-stage flight and recovery testing | David Casper">
+<meta property="og:description" content="Launch operations for Rice Eclipse&#x27;s first successful two-stage rocket and black powder ground separation tests.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Noto+Sans+Math&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a><header class="band site-head" id="top"><div class="wrap head-row"><a class="brand" href="../index.html">David Casper</a><nav class="site-nav" aria-label="Primary"><a href="../index.html#projects">Projects</a><a href="../index.html#experience">Experience</a><a href="../index.html#skills">Skills</a><a href="../index.html#contact">Contact</a></nav></div></header><main id="main"><section class="band"><div class="wrap proj-head has-media"><div class="proj-text"><a class="back" href="../index.html#projects">&larr; All projects</a><p class="eyebrow">Rice Eclipse · Aerodynamics Division</p><h1>Two-stage flight and recovery testing</h1><p class="lead">In my first year on Rice Eclipse I worked pre-flight assembly and launch operations for Prestige, the team’s first successful two-stage rocket, and helped validate the recovery system with black powder ground tests.</p><dl class="tb"><div><dt>Role</dt><dd>Member, Aerodynamics Division</dd></div><div><dt>Dates</dt><dd>August 2025 to July 2026</dd></div><div><dt>Vehicle</dt><dd>Prestige, two-stage</dd></div><div><dt>Testing</dt><dd>More than five ground separation tests</dd></div></dl></div><figure class="proj-media landscape"><div class="hero-frame"><video autoplay muted loop playsinline poster="../assets/img/prestige-separation-poster-1280.webp" width="1280" height="720" aria-label="Video of a Prestige ground separation test in which an ejection charge pushes a section off the rocket"><source src="../assets/video/prestige-separation.mp4" type="video/mp4"></video><button type="button" class="sound-btn" data-sound aria-label="Unmute the video">Unmute</button></div><figcaption>Prestige ground separation test · Nov 2025</figcaption></figure></div></section>
+<article class="wrap prose">
+<section>
+  <h2>Prestige</h2>
+  <p>Prestige was Rice Eclipse’s first successful two-stage rocket. I worked on its pre-flight assembly and its launch operations, and on ground separation tests of its recovery system in November 2025. The video at the top of this page is one of those tests.</p>
+</section>
+
+<section>
+  <h2>Ground separation tests</h2>
+  <p>A recovery system only works if the ejection charge separates the airframe every time. Too little black powder and the shear pins hold. Too much and the charge can damage the rocket. So each charge is proven on the ground before flight: the rocket is laid out fully assembled, the charge is fired, and the sections have to separate cleanly.</p>
+  <p>The charges were sized with the team’s MATLAB calculator. It first finds the pressure that breaks the nylon shear pins, from the number of pins <math><mi>n</mi></math>, their shear strength <math><mi>&#x3C4;</mi></math> and their cross-section.</p>
+  <div class="mathblock"><math display="block"><mi>P</mi><mo>=</mo><mfrac><mrow><mi>n</mi><mo>&#x2062;</mo><mi>&#x3C4;</mi><mo>&#x2062;</mo><msub><mi>A</mi><mtext>pin</mtext></msub></mrow><msub><mi>A</mi><mtext>bulkhead</mtext></msub></mfrac></math></div>
+  <p>It then uses the ideal gas law to turn that pressure and the volume of the parachute bay into a mass of black powder, with safety factors for the primary and backup charges.</p>
+  <div class="mathblock"><math display="block"><mi>m</mi><mo>=</mo><mfrac><mrow><mi>P</mi><mo>&#x2062;</mo><mi>V</mi></mrow><mrow><mi>R</mi><mo>&#x2062;</mo><mi>T</mi></mrow></mfrac></math></div>
+  <p>The two clips below are from later ground tests in May 2026 for the team’s summer launch of Aurora and Helios, which reached 75,000 ft. The sustainer was not recovered.</p>
+  <div class="figrow two">
+    <figure class="fig "><video controls playsinline preload="none" poster="../assets/img/separation-test-a-poster-800.webp" width="1280" height="720" aria-label="Video of a ground separation test in which the nose section is pushed off by an ejection charge"><source src="../assets/video/separation-test-a.mp4" type="video/mp4"></video><figcaption><b>Fig. 1</b>Ground separation test for the Aurora and Helios launch, May 2026.</figcaption></figure>
+    <figure class="fig "><video controls playsinline preload="none" poster="../assets/img/separation-test-b-poster-800.webp" width="1280" height="720" aria-label="Video of a second ground separation test with a puff of smoke at the joint"><source src="../assets/video/separation-test-b.mp4" type="video/mp4"></video><figcaption><b>Fig. 2</b>A second ground separation test from the same campaign.</figcaption></figure>
+  </div>
+  <div class="note"><span class="kicker">Credit</span><p>The charge calculator is a Rice Eclipse team tool, and the rockets in these videos are team vehicles.</p></div>
+</section>
+</article>
+</main>
+<div class="wrap"><nav class="pager" aria-label="More projects"><a href="prometheus.html"><span class="kicker">Previous project</span><strong>Prometheus liquid engine</strong></a><a class="next" href="../index.html#contact"><span class="kicker">That is all six</span><strong>Get in touch</strong></a></nav></div><footer class="band"><div class="wrap"><div class="site-foot plain"><span>David Casper · Mechanical Engineering · Rice University</span><span>Updated November 2026</span></div></div></footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>
